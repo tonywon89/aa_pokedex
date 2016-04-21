@@ -9,6 +9,7 @@ PokemonStore.resetPokemons = function(pokemons){
   pokemons.forEach(function(pokemon){
     _pokemons[pokemon.id] = pokemon;
   });
+  PokemonStore.__emitChange();
 };
 
 PokemonStore.__onDispatch = function(payload){
