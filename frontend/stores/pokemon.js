@@ -30,4 +30,8 @@ PokemonStore.all = function(){
   return result;
 };
 
+PokemonStore.find = function(id){
+  return _pokemons[id];
+};
+
 module.exports = PokemonStore;
