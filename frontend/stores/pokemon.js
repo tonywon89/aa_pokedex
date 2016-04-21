@@ -17,7 +17,15 @@ PokemonStore.__onDispatch = function(payload){
     case "POKEMONS_RECEIVED":
       this.resetPokemons(payload.pokemons);
       break;
+    case "SINGLE_POKEMON_RECEIVED":
+      this.resetSinglePokemon(payload.pokemon);
+      break;
   }
+};
+
+PokemonStore.resetSinglePokemon = function(pokemon){
+  _pokemons[pokemon.id] = pokemon;
+  PokemonStore.__emitChange();
 };
 
 PokemonStore.all = function(){

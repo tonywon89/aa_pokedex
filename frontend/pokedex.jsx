@@ -1,9 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-// PokemonStore = require('./stores/pokemon.js');
-// ApiUtils = require('./util/apiUtil');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
+var HashHistory = require('react-router').hashHistory;
 var PokemonDetail = require('./components/pokemons/pokemonDetail');
 var PokemonsIndex = require('./components/pokemons/pokemonsIndex.jsx');
 
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   ReactDOM.render(
-    <Router>
+    <Router history={HashHistory}>
       {routes}
      </Router>,
     document.getElementById("root")

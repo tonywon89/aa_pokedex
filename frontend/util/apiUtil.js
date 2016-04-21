@@ -1,4 +1,3 @@
-// we'll make ajax requests that fetch information served by our rails controllers, and on success call a front end action creator.
 var ServerActions = require('../actions/serverActions.js');
 
 var ApiUtils = {
@@ -8,6 +7,16 @@ var ApiUtils = {
       type: "GET",
       success: function(pokemons){
         ServerActions.receiveAllPokemons(pokemons);
+      }
+    });
+  },
+
+  fetchSinglePokemon: function (id) {
+    $.ajax({
+      url: "api/pokemon/" + id,
+      type: "GET",
+      success: function(pokemon) {
+        ServerActions.receiveSinglePokemon(pokemon);
       }
     });
   }
