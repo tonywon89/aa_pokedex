@@ -1,7 +1,7 @@
 var React = require("react");
 var PokemonStore = require("../../stores/pokemon.js");
 var ClientActions = require("../../actions/clientActions.js");
-
+var PokemonIndexItem = require("./pokemonIndexItem.jsx");
 
 var PokemonIndex = React.createClass({
   getInitialState: function () {
@@ -26,9 +26,9 @@ var PokemonIndex = React.createClass({
       return (<PokemonIndexItem key={pokemon.id} pokemon={pokemon}/>);
     });
     return(
-      <div>
+      <ul>
         {pokemonItems}
-      </div>
+      </ul>
     );
   }
 });
