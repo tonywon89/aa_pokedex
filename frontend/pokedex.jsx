@@ -5,7 +5,7 @@ var Route = require('react-router').Route;
 var HashHistory = require('react-router').hashHistory;
 var PokemonDetail = require('./components/pokemons/pokemonDetail');
 var PokemonsIndex = require('./components/pokemons/pokemonsIndex.jsx');
-
+var ToysIndex = require('./components/toys/toysIndex');
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var routes = (
     <Route path="/" component={App}>
-      <Route path="pokemon/:pokemonId" component={PokemonDetail}></Route>
+      <Route path="pokemon/:pokemonId" component={PokemonDetail}>
+      </Route>
+
     </Route>
   );
 

@@ -1,6 +1,7 @@
 var React = require("react");
 var PokemonStore = require("../../stores/pokemon");
 var ClientActions = require("../../actions/clientActions");
+var ToysIndex = require("../toys/toysIndex");
 
 var PokemonDetail = React.createClass({
 
@@ -15,20 +16,17 @@ var PokemonDetail = React.createClass({
 
   getStateFromStore: function(){
     var pokemon = PokemonStore.find(this.props.params.pokemonId);
-
     this.setState({pokemon: pokemon});
   },
 
   componentWillReceiveProps: function(newProps){
     ClientActions.fetchSinglePokemon(parseInt(newProps.params.pokemonId));
-
-    // var pokemon = PokemonStore.find(newProps.params.pokemonId);
-    // this.setState({pokemon: pokemon});
   },
 
   render: function(){
     var imageContent;
     var textContent = [];
+    var toys;
     var pokemon = this.state.pokemon;
 
     if (pokemon){
@@ -39,9 +37,13 @@ var PokemonDetail = React.createClass({
       textContent.push(<li>{"Type: " + pokemon.poke_type}</li>);
       textContent.push(<li>{"Moves: [" + pokemon.moves + "]"}</li>);
 
+      toys = pokemon.toys;
     } else {
       imageContent = "Loading...";
+      toys = undefined;
     }
+
+
 
     return(
       <div>
@@ -51,7 +53,10 @@ var PokemonDetail = React.createClass({
             <ul>
               {textContent}
             </ul>
+
           </div>
+          <h3> Toys: </h3>
+          <ToysIndex toys={toys}/>
         </div>
       </div>
     );
