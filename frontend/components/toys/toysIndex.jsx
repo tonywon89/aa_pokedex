@@ -23,6 +23,7 @@ var ToysIndex = React.createClass({
        contents = "";
      }
 
+     debugger;
     return (
       <ul>
         {contents}
